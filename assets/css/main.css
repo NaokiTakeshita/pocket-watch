@@ -1,0 +1,279 @@
+@charset "UTF-8";
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  margin: 210px auto;
+  position: relative;
+}
+.clock__frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(45deg, #b67b03 0%, #daaf08 45%, #fee9a0 70%, #daaf08 85%, #b67b03 90% 100%);
+  border-radius: 50%;
+  box-shadow: 5px 5px 14px 4px rgba(0, 0, 0, 0.3);
+}
+.clock__frame::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: radial-gradient(circle closest-corner at 50% 50%, #b60303 0%, #daaf08 60%, #2a2616 70%, #daaf08 80%, #2a2616 90%);
+}
+.clock__tickContainer {
+  width: 440px;
+  height: 440px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  background: conic-gradient(white, silver, white, silver, white, silver, white, silver, white, silver, white);
+  border-radius: 50%;
+  outline: 2px solid #000;
+  box-shadow: inset 15px 25px 15px rgba(0, 0, 0, 0.5);
+}
+.clock::before {
+  background-color: #fff;
+}
+.clock::after {
+  content: "";
+  width: 410px;
+  height: 410px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  outline: 2px solid #000;
+}
+.clock__tick {
+  width: 5px;
+  height: 440px;
+  position: absolute;
+  left: 50%;
+  left: 50%;
+  transform: translateX(-50%, -50%);
+}
+.clock__tick--major {
+  width: 100%;
+  height: 20px;
+  margin: 0 auto;
+  background-color: black;
+}
+.clock__tick--minor {
+  width: 50%;
+  height: 15px;
+  margin: 0 auto;
+  background-color: black;
+}
+.clock__numberContainer {
+  width: 440px;
+  height: 440px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.clock__numberContainer__box {
+  height: 100%;
+  padding-top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  position: absolute;
+}
+.clock__numberContainer__number {
+  display: inline-block;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size: 32px;
+  font-weight: 600;
+  transform: scaleY(2);
+}
+.clock__hand {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.clock__hand::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  border-radius: 50%;
+}
+.clock__hand__h {
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.clock__hand__m {
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.clock__hand__s {
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+.clock__hand__letter {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  box-shadow: 3px 5px 8px rgba(68, 68, 68, 0.2);
+}
+.clock__hand__letter--h {
+  padding-top: 80px;
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 190px;
+  background-color: black;
+  left: 50%;
+  top: 110px;
+  transform: translate(-50%, 0px);
+  border-radius: 50%;
+}
+.clock__hand__letter--h::after {
+  content: "♦";
+  display: block;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 50px;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%) scale(0.5, 1.5);
+  position: absolute;
+}
+.clock__hand__letter--m {
+  padding-top: 80px;
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 255px;
+  background-color: black;
+  left: 50%;
+  top: 45px;
+  transform: translate(-50%, 0px);
+  border-radius: 50%;
+}
+.clock__hand__letter--m::after {
+  content: "♦";
+  display: block;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 50px;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%) scale(0.5, 1.5);
+  position: absolute;
+}
+.clock__hand__letter--s {
+  padding-top: 80px;
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 260px;
+  background-color: black;
+  left: 50%;
+  top: 35px;
+  transform: translate(-50%, 0px);
+  border-radius: 50%;
+}
+.clock__hand__letter--s::after {
+  content: "♦";
+  display: block;
+  color: black;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 50px;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%) scale(0.2, 1.5);
+  position: absolute;
+}
+.clock__reflect-overlay {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.clock__reflect-overlay::before {
+  content: "";
+  position: absolute;
+  background-color: grey;
+  opacity: 0.1;
+  left: 50%;
+  top: 50%;
+  width: 440px;
+  height: 440px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.clock__reflect-overlay::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  opacity: 0.35;
+  left: -20px;
+  top: -150px;
+  width: 250px;
+  height: 500px;
+  transform: rotate(40deg);
+  border-radius: 50%;
+}
+.clock__reflect-overlay__inner {
+  width: 440px;
+  height: 440px;
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.clock__reflect-overlay__inner::before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle at 220px 310px, #fff 20%, #ddd 45%, #aaa 60%, #333 75%);
+  opacity: 0.5;
+  left: 50%;
+  top: 50%;
+  width: 440px;
+  height: 440px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}/*# sourceMappingURL=main.css.map */

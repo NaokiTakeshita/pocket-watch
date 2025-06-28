@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <div class="clock" id="clock">
+      <div class="clock__frame"></div>
+      <div class="clock__tickContainer" id="clock__tickContainer"></div>
+      <div class="clock__numberContainer" id="clock__numberContainer"></div>
+      <div class="clock__hand">
+        <div class="clock__hand__h" id="clock__hand__h">
+          <span class="clock__hand__letter clock__hand__letter--h"></span>
+        </div>
+        <div class="clock__hand__m" id="clock__hand__m">
+          <span class="clock__hand__letter clock__hand__letter--m"></span>
+        </div>
+        <div class="clock__hand__s" id="clock__hand__s">
+          <span class="clock__hand__letter clock__hand__letter--s"></span>
+        </div>
+      </div>
+      <div class="clock__reflect-overlay">
+        <div class="clock__reflect-overlay__inner"></div>
+      </div>
+    </div>
+    <script>
+      console.log("create clock");
+      const clock = document.getElementById("clock");
+      const tickContainer = document.getElementById("clock__tickContainer");
+      const numberContainer = document.getElementById("clock__numberContainer");
+
+      const clockHandH = document.getElementById("clock__hand__h");
+      const clockHandM = document.getElementById("clock__hand__m");
+      const clockHandS = document.getElementById("clock__hand__s");
+
+      const romanMap = [
+        "XII",
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "VI",
+        "VII",
+        "VIII",
+        "IX",
+        "X",
+        "XI",
+      ];
+
+      for (let i = 0; i < 12; i++) {
+        const tick = document.createElement("div");
+        tick.className = "clock__tick";
+
+        const major = document.createElement("div");
+        major.className = "clock__tick--major";
+        tick.appendChild(major);
+
+        const angle = i * 30;
+        tick.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+
+        tickContainer.appendChild(tick);
+      }
+
+      for (let i = 0; i < 60; i++) {
+        if (i % 5 === 0) {
+          continue;
+        }
+
+        const tick = document.createElement("div");
+        tick.className = "clock__tick";
+
+        const minor = document.createElement("div");
+        minor.className = "clock__tick--minor";
+        tick.appendChild(minor);
+
+        angle = i * 6;
+        tick.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+        tickContainer.appendChild(tick);
+      }
+
+      for (let i = 0; i < 12; i++) {
+        const box = document.createElement("div");
+        box.className = "clock__numberContainer__box";
+
+        const numberArea = document.createElement("span");
+        numberArea.className = "clock__numberContainer__number";
+        box.style.transform = `translate(-50%) rotate(${i * 30}deg)`;
+
+        numberArea.textContent = romanMap[i];
+        numberArea.style.transform = `rotate(-60deg);`;
+
+        box.appendChild(numberArea);
+        numberContainer.append(box);
+        // <div class="clock__numberContainer__box">
+        //   <span class="clock__numberContainer__number">XII</span>
+        // </div>
+      }
+
+      function showClock() {
+        let nowTime = new Date();
+        let nowH = nowTime.getHours();
+        let nowH12 = nowH % 12;
+        let nowM = nowTime.getMinutes();
+        let nowS = nowTime.getSeconds();
+
+        clockHandH.style.rotate = `${(nowH12 + nowM / 60) * 30}deg`;
+        clockHandM.style.rotate = `${(nowM + nowS / 60) * 6}deg`;
+        clockHandS.style.rotate = `${nowS * 6}deg`;
+      }
+      setInterval(showClock, 1000);
+
+      //   clock.appendChild(tickContainer);
+    </script>
+  </body>
+</html>
