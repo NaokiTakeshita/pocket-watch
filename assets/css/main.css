@@ -47,6 +47,7 @@ html {
   padding: 0;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
+  z-index: 1;
   background: conic-gradient(white, silver, white, silver, white, silver, white, silver, white, silver, white);
   border-radius: 50%;
   outline: 2px solid #000;
@@ -65,6 +66,7 @@ html {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   outline: 2px solid #000;
+  z-index: 5;
 }
 .clock__tick {
   width: 5px;
@@ -93,6 +95,7 @@ html {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10;
 }
 .clock__numberContainer__box {
   height: 100%;
@@ -116,6 +119,7 @@ html {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 100;
 }
 .clock__hand::after {
   content: "";
@@ -229,6 +233,7 @@ html {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   overflow: hidden;
+  z-index: 1000;
 }
 .clock__reflect-overlay::before {
   content: "";
