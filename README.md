@@ -10,3 +10,5 @@ HTML・CSS・JavaScript を使って作成したアナログ時計（懐中時�
 📎 [https://codepen.io/Naoki-Takeshita/pen/RNPdJjw](https://codepen.io/Naoki-Takeshita/pen/RNPdJjw)
 
 ---
+
+![clock](./assets/img/clock.webp)
